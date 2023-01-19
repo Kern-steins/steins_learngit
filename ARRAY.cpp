@@ -37,13 +37,13 @@ void ARRAY_PRINT(int* RAND_ARRAY, int RAND_LENGTH){
 	 	/* code */
 		for (int j = 0; j < RAND_LENGTH ; j++){
 			if( RAND_ARRAY[j] > i){
-				printf("* \n");
+				printf("* ");
 			}	
 			else
-				printf("  \n");
+				printf("  ");
 		}
 		printf("\n");
-	 } 
+	} 
 
 }
 /*
