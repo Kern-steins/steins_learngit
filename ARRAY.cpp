@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define N 100
-#define LENGTH 4
+#define LENGTH 20
 
-void gen_random(int *RAND_ARRAY, int RAND_COUNT);
+void gen_random(int *RAND_ARRAY, int RAND_COUNT, int R_LENGTH);
 void ARRAY_CHART(int *RAND_ARRAY, int RAND_LENGTH);
 void ARRAY_PRINT(int *RAND_ARRAY, int RAND_LENGTH);
 int ARRAY_MAX(int *RAND_ARRAY, int RAND_LENGTH);
@@ -13,38 +14,52 @@ void ARRAY_Permutation(int *RAND_ARRAY, int RAND_LENGTH, int start);
 
 int main(int argc, char const *argv[])
 {
-
-	int array[LENGTH] = { 1, 2, 3, 4 };
-	ARRAY_Permutation(array, LENGTH, 0);
-
+	int array[LENGTH] = {0};
+	int a[N] = {0};
+	int i = 0;
+	srand(time(NULL));
+	gen_random(a,N,LENGTH);
+	for (i = 0; i < N; i++)
+		array[a[i]]++;
+	ARRAY_CHART(array,LENGTH);
 	return 0;
 }
 
 /*
-该函数用来以直方图形式打印数组
-先确定行数，第一个for循环用于遍历所有行数，第二个for循环用于遍历所有列数
-如果ARRAY[j]大于当前行数，也就是当前行存在*，那么就打印*，否则打印空格
+*	该函数用来以直方图形式打印数组
+*	输入参数为数组地址和数组长度
+*	先打印数组元素个数0-RAND_LENGTH
+*	然后以直方图形式打印元素数量
 */
 void ARRAY_CHART(int *RAND_ARRAY, int RAND_LENGTH)
 {
 
 	int MAX = ARRAY_MAX(RAND_ARRAY, RAND_LENGTH);
 
-	printf("0 1 2 3 4 5 6 7 8 9\n");
+	for (int a=0; a < RAND_LENGTH; a++){
+		if (a == RAND_LENGTH - 1){
+			printf("%d\n", a);
+		}
+		else
+			printf("%d\t", a);
+	}
 	for (int i = 0; i < MAX; i++) {
 		/* code */
 		for (int j = 0; j < RAND_LENGTH; j++) {
 			if (RAND_ARRAY[j] > i) {
-				printf("* ");
+				printf("*\t");
 			} else
-				printf("  ");
+				printf(" \t");
 		}
 		printf("\n");
 	}
 
 }
 
-//该函数用于打印数组的所有元素
+/*	该函数用于打印数组的所有元素
+*	输入第一个参数为数组地址，第二个是数组长度
+*	逐个打印数组元素
+*/
 void ARRAY_PRINT(int *RAND_ARRAY, int RAND_LENGTH)
 {
 
@@ -61,12 +76,12 @@ void ARRAY_PRINT(int *RAND_ARRAY, int RAND_LENGTH)
 /*
 该函数用于生成随机数，生成一组随机数赋值给数组
 */
-void gen_random(int *RAND_ARRAY, int RAND_COUNT)
+void gen_random(int *RAND_ARRAY, int RAND_COUNT, int R_LENGTH)
 {
 
 	for (int i = 0; i < RAND_COUNT; i++) {
 
-		RAND_ARRAY[i] = rand() % LENGTH;
+		RAND_ARRAY[i] = rand() % R_LENGTH;
 
 	}
 
@@ -98,7 +113,10 @@ void ARRAY_SWAP(int *RAND_ARRAY, int Num_1, int Num_2)
 
 }
 
-//数组全排列
+/*
+ * 数组全排列，输入参数为数组地址，数组长度，以及当前排列位置
+ * 将数组元素全部交换后达到base case表明已排列完成，输出数组
+ */
 void ARRAY_Permutation(int *RAND_ARRAY, int RAND_LENGTH, int start)
 {
 
