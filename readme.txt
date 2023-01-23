@@ -1,2 +1,2 @@
 This is a repo for learning git and C
-just for test
+just for study
