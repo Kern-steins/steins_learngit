@@ -1,15 +1,10 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 
 #define LENGTH 20
 
 void array_swap(int *rand_array, int Num_1, int Num_2);
 void insertion_sort(int *array, int ARRAY_LENGTH);
 void array_print(int *rand_array, int RAND_LENGTH);
-void gen_random(int *rand_array, int RAND_COUNT, int R_LENGTH);
-void merge_sort(int *array, int start, int end);
-void array_merge(int *array, int array_start, int array_mid, int array_end);
 
 int main(void)
 {
@@ -18,20 +13,8 @@ int main(void)
 	gen_random(array, LENGTH, 10);
 	merge_sort(array,0,LENGTH-1);
 	array_print(array, LENGTH);
+	
 	return 0;
-}
-
-void array_print(int *rand_array, int RAND_LENGTH)
-{
-
-	for (int i = 0; i < RAND_LENGTH; i++) {
-		if (i != RAND_LENGTH - 1) {
-			printf("%d ", rand_array[i]);
-
-		} else
-			printf("%d\n", rand_array[i]);
-	}
-
 }
 
 void array_swap(int *rand_array, int Num_1, int Num_2)
@@ -43,34 +26,35 @@ void array_swap(int *rand_array, int Num_1, int Num_2)
 
 }
 
-void gen_random(int *rand_array, int RAND_COUNT, int R_LENGTH)
-{
-
-	for (int i = 0; i < RAND_COUNT; i++) {
-
-		rand_array[i] = rand() % R_LENGTH;
-
-	}
-
-}
-
 /*
- * 插入排序(Insert)，时间复杂度为n方 
+ * 插入排序，时间复杂度为n方 
  * 第一参数为数组指针，第二参数为数组长度
  * 使用函数后会将int型数组元素从小到大排序 
  * 函数将依次从第一个元素开始排序，将最小的元素放到第一个
  * 然后递归判断剩下的子数组
  * 
- */
+ * */
 
 void insertion_sort(int *array, int ARRAY_LENGTH)
 {
-	for (int i = 0; i < ARRAY_LENGTH; i++) {
-		for (int j = i + 1; j < ARRAY_LENGTH; j++) {
+	for (int i = 0; i < ARRAY_LENGTH; i++){
+		for (int j = i+1; j < ARRAY_LENGTH; j++){
 			if (array[i] > array[j])
-				array_swap(array, i, j);
+				array_swap(array,i,j);
 		}
+	}	
+}
+void array_print(int *rand_array, int RAND_LENGTH)
+{
+
+	for (int i = 0; i < RAND_LENGTH; i++) {
+		if (i != RAND_LENGTH - 1) {
+			printf("%d\t", rand_array[i]);
+
+		} else
+			printf("%d\n", rand_array[i]);
 	}
+
 }
 
 /**
