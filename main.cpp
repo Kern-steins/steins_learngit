@@ -9,14 +9,15 @@ void insertion_sort(int *array, int ARRAY_LENGTH);
 void array_print(int *rand_array, int RAND_LENGTH);
 void gen_random(int *rand_array, int RAND_COUNT, int R_LENGTH);
 void merge_sort(int *array, int start, int end);
-void array_merge(int *array, int array_start, int array_mid, int array_end);
+void array_merge(int *array, int array_start, int array_mid,
+		 int array_end);
 
 int main(void)
 {
 	int array[LENGTH] = { 0 };
 	srand(time(NULL));
 	gen_random(array, LENGTH, 10);
-	merge_sort(array,0,LENGTH-1);
+	merge_sort(array, 0, LENGTH - 1);
 	array_print(array, LENGTH);
 	return 0;
 }
@@ -80,18 +81,15 @@ void insertion_sort(int *array, int ARRAY_LENGTH)
  * 那么该函数将使数组的选择段以从小到大排列
  * */
 
-void array_merge(	int *array, 
-					int array_start, 
-				 	int array_mid, 
-				 	int array_end)
+void array_merge(int *array, int array_start, int array_mid, int array_end)
 {
 	int n1 = array_mid - array_start + 1;
-	int n2 = array_end - array_mid ;
+	int n2 = array_end - array_mid;
 	int left[n1] = { 0 };
 	int right[n2] = { 0 };
 	int i, j, k;
 
-	for (i = 0; i < n1 ; i++)
+	for (i = 0; i < n1; i++)
 		left[i] = array[i + array_start];
 
 	for (j = 0; j < n2; j++)
@@ -100,15 +98,17 @@ void array_merge(	int *array,
 	i = j = 0;
 	k = array_start;
 
-	while ( i < n1 && j < n2){
-		if (left[i] < right[j]){
+	while (i < n1 && j < n2) {
+		if (left[i] < right[j]) {
 			array[k++] = left[i++];
-		}else{
+		} else {
 			array[k++] = right[j++];
 		}
 	}
-	while (i < n1) array[k++] = left[i++];
-	while (j < n2) array[k++] = right[j++];
+	while (i < n1)
+		array[k++] = left[i++];
+	while (j < n2)
+		array[k++] = right[j++];
 }
 
 /**
@@ -122,11 +122,22 @@ void array_merge(	int *array,
 
 void merge_sort(int *array, int start, int end)
 {
-	int mid = 0;	
-	if (start < end){
+	int mid = 0;
+	if (start < end) {
 		mid = (start + end) / 2;
-		merge_sort(array,start,mid);
-		merge_sort(array,mid+1,end);
-		array_merge(array,start,mid,end);
+		merge_sort(array, start, mid);
+		merge_sort(array, mid + 1, end);
+		array_merge(array, start, mid, end);
 	}
 }
+
+/**
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * */
+
+int partition(int *array)
