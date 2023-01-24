@@ -11,13 +11,15 @@ void gen_random(int *rand_array, int RAND_COUNT, int R_LENGTH);
 void merge_sort(int *array, int start, int end);
 void array_merge(int *array, int array_start, int array_mid,
 		 int array_end);
+int partition(int *array, int start, int end);
+void quicksort(int *array, int start, int end);
 
 int main(void)
 {
 	int array[LENGTH] = { 0 };
 	srand(time(NULL));
 	gen_random(array, LENGTH, 10);
-	merge_sort(array, 0, LENGTH - 1);
+	quicksort(array, 0, LENGTH - 1);
 	array_print(array, LENGTH);
 	return 0;
 }
@@ -133,11 +135,63 @@ void merge_sort(int *array, int start, int end)
 
 /**
  * 
+ * 该函数用于检索第一个元素在数组所选段中的坐标 
+ * 输入参数为数组地址，起始坐标和终点坐标
+ * 该函数将数组[start～end]重新排列
+ * 比array[start]小的排在前面，大的排在后面
+ * 返回array[start]的新坐标array[mid]
  * 
+ * */
+
+int partition(int *array, int start, int end)
+{
+	int mid = 0;
+	int i, j, k;
+	int pivot = array[start];
+	int lenth = end - start + 1;
+	int temp[lenth] = { 0 };
+
+	j = 0;
+	k = lenth - 1;
+
+	for (i = 0; i < lenth; i++) {
+		temp[i] = array[i + start];
+	}
+	for (i = 0; i < lenth; i++) {
+		if (temp[i] < pivot) {
+			array[start + j] = temp[i];
+			j++;
+		} else if (temp[i] > pivot) {
+			array[start + k] = temp[i];
+			k--;
+		}
+
+	}
+	mid = (j + k) / 2;
+	while (j <= k) {
+		array[j + start] = pivot;
+		j++;
+	}
+	return mid + start;
+}
+
+/**
  * 
- * 
+ * 快速排序，从小到大排序
+ * 平均情况下的时间复杂度也是O(nlgn)，比归并排序有更小的时间常数
+ * 输入参数为数组地址，起始地址，终点地址
+ * 通过递归将数组重新排列(改变数组元素)
  * 
  * 
  * */
 
-int partition(int *array)
+void quicksort(int *array, int start, int end)
+{
+	int mid = 0;
+	if (end > start) {
+		mid = partition(array, start, end);
+		quicksort(array, start, mid - 1);
+		quicksort(array, mid + 1, end);
+	}
+
+}
