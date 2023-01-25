@@ -13,14 +13,19 @@ void array_merge(int *array, int array_start, int array_mid,
 		 int array_end);
 int partition(int *array, int start, int end);
 void quicksort(int *array, int start, int end);
+int order_statistic(int *array, int start, int end, int k);
 
 int main(void)
 {
 	int array[LENGTH] = { 0 };
+	int pivot = 0;
+
 	srand(time(NULL));
 	gen_random(array, LENGTH, 10);
-	quicksort(array, 0, LENGTH - 1);
+	pivot = order_statistic(array, 0, LENGTH - 1, 2);
+	printf("pivot is %d\n", pivot);
 	array_print(array, LENGTH);
+
 	return 0;
 }
 
@@ -192,6 +197,31 @@ void quicksort(int *array, int start, int end)
 		mid = partition(array, start, end);
 		quicksort(array, start, mid - 1);
 		quicksort(array, mid + 1, end);
+	}
+
+}
+
+/**
+ * 有bug，会陷入死循环
+ * 该函数为查找函数，找出数组中第k小的元素
+ * 输入参数为数组地址，起始地址，结束地址，第k小
+ * 会将数组先排序，后找到第k小元素后return该元素
+ * */
+
+int order_statistic(int *array, int start, int end, int k)
+{
+	int i = partition(array, start, end) + 1;
+
+	if (k == i)
+		return array[i];
+
+	else if (k > i) {
+
+		return order_statistic(array, i + 1, end, k - i);
+
+	} else {
+
+		return order_statistic(array, start, i - 1, k);
 	}
 
 }

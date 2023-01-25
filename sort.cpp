@@ -5,6 +5,11 @@
 void array_swap(int *rand_array, int Num_1, int Num_2);
 void insertion_sort(int *array, int ARRAY_LENGTH);
 void array_print(int *rand_array, int RAND_LENGTH);
+void array_merge(int *array, int array_start, int array_mid,
+		 int array_end);
+void merge_sort(int *array, int start, int end);
+int partition(int *array, int start, int end);
+void quicksort(int *array, int start, int end);
 
 int main(void)
 {
@@ -174,6 +179,31 @@ void quicksort(int *array, int start, int end)
 		mid = partition(array, start, end);
 		quicksort(array, start, mid - 1);
 		quicksort(array, mid + 1, end);
+	}
+
+}
+
+/**
+ * 有bug，会陷入死循环
+ * 该函数为查找函数，找出数组中第k小的元素
+ * 输入参数为数组地址，起始地址，结束地址，第k小
+ * 会将数组先排序，后找到第k小元素后return该元素
+ * */
+
+int order_statistic(int *array, int start, int end, int k)
+{
+	int i = partition(array, start, end) + 1;
+
+	if (k == i)
+		return array[i];
+
+	else if (k > i) {
+
+		return order_statistic(array, i + 1, end, k - i);
+
+	} else {
+
+		return order_statistic(array, start, i - 1, k);
 	}
 
 }
