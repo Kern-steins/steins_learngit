@@ -11,16 +11,7 @@ void merge_sort(int *array, int start, int end);
 int partition(int *array, int start, int end);
 void quicksort(int *array, int start, int end);
 
-int main(void)
-{
-	int array[LENGTH] = { 0 };
-	srand(time(NULL));
-	gen_random(array, LENGTH, 10);
-	merge_sort(array, 0, LENGTH - 1);
-	array_print(array, LENGTH);
 
-	return 0;
-}
 
 void array_swap(int *rand_array, int Num_1, int Num_2)
 {
@@ -55,7 +46,7 @@ void array_print(int *rand_array, int RAND_LENGTH)
 
 	for (int i = 0; i < RAND_LENGTH; i++) {
 		if (i != RAND_LENGTH - 1) {
-			printf("%d\t", rand_array[i]);
+			printf("%d  ", rand_array[i]);
 
 		} else
 			printf("%d\n", rand_array[i]);
