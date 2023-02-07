@@ -1,0 +1,82 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+-style	Makefile	/^	-astyle --style=kr $(INC)$/;"	m
+ARRAY_CHART	src/ARRAY.cpp	/^void ARRAY_CHART(int *RAND_ARRAY, int RAND_LENGTH)$/;"	f
+ARRAY_MAX	src/ARRAY.cpp	/^int ARRAY_MAX(int *RAND_ARRAY, int RAND_LENGTH)$/;"	f
+ARRAY_PRINT	src/ARRAY.cpp	/^void ARRAY_PRINT(int *RAND_ARRAY, int RAND_LENGTH)$/;"	f
+ARRAY_Permutation	src/ARRAY.cpp	/^void ARRAY_Permutation(int *RAND_ARRAY, int RAND_LENGTH, int start)$/;"	f
+ARRAY_SWAP	src/ARRAY.cpp	/^void ARRAY_SWAP(int *RAND_ARRAY, int Num_1, int Num_2)$/;"	f
+INC	Makefile	/^INC = $(wildcard .\/inc\/*.h)$/;"	m
+LENGTH	src/ARRAY.cpp	6;"	d	file:
+LENGTH	src/sort.cpp	3;"	d	file:
+LINKEDLIST_H	inc/linkedlist.h	2;"	d
+MAIN_H	inc/main.h	2;"	d
+MAIN_SRC	Makefile	/^MAIN_SRC = $(wildcard .\/src\/main.cpp)$/;"	m
+MAX_COL	inc/main.h	9;"	d
+MAX_ROW	inc/main.h	8;"	d
+N	src/ARRAY.cpp	5;"	d	file:
+RECT_POL	inc/rect_pol.h	2;"	d
+SORT_H	inc/sort.h	2;"	d
+SRC	Makefile	/^SRC = $(wildcard .\/src\/*.cpp .\/src\/*.c)$/;"	m
+STACK_H	inc/stack.h	2;"	d
+a	inc/rect_pol.h	/^    double a;$/;"	m	struct:complex_struct
+angle	inc/rect_pol.h	31;"	d
+angle_tb1	inc/rect_pol.h	/^double (*angle_tb1[])(const complex_struct) =$/;"	v
+array_merge	src/sort.cpp	/^void array_merge(int *array, int array_start, int array_mid, int array_end)$/;"	f
+array_print	src/sort.cpp	/^void array_print(int *rand_array, int RAND_LENGTH)$/;"	f
+array_swap	src/sort.cpp	/^void array_swap(int *rand_array, int Num_1, int Num_2)$/;"	f
+b	inc/rect_pol.h	/^    double b;$/;"	m	struct:complex_struct
+col	inc/main.h	/^    int row, col;$/;"	m	struct:point
+complex_struct	inc/rect_pol.h	/^typedef struct complex_struct {$/;"	s
+complex_struct	inc/rect_pol.h	/^} complex_struct;$/;"	t	typeref:struct:complex_struct
+gen_random	src/ARRAY.cpp	/^void gen_random(int *RAND_ARRAY, int RAND_COUNT, int R_LENGTH)$/;"	f
+get_a_day	src/main.cpp	/^void get_a_day(const char **p)$/;"	f
+head	src/linkedlist.cpp	/^static link head = NULL;$/;"	v	file:
+img_part	inc/rect_pol.h	29;"	d
+img_part_tb1	inc/rect_pol.h	/^double (*img_part_tb1[])(const complex_struct) =$/;"	v
+insertion_sort	src/sort.cpp	/^void insertion_sort(int *array, int ARRAY_LENGTH)$/;"	f
+is_empty	src/stack.cpp	/^int is_empty(void)$/;"	f
+item	inc/linkedlist.h	/^    unsigned char item;$/;"	m	struct:node
+item_t	inc/main.h	/^} item_t;$/;"	t	typeref:struct:point
+link	inc/linkedlist.h	/^typedef struct node link;$/;"	t	typeref:struct:node
+link_delete	src/linkedlist.cpp	/^void link_delete(link p)$/;"	f
+link_destroy	src/linkedlist.cpp	/^void link_destroy(void)$/;"	f
+link_free_node	src/linkedlist.cpp	/^void link_free_node(link p)$/;"	f
+link_insert	src/linkedlist.cpp	/^void link_insert(link p)$/;"	f
+link_make_node	src/linkedlist.cpp	/^link link_make_node(const unsigned char item)$/;"	f
+link_pop	src/linkedlist.cpp	/^link link_pop(void)$/;"	f
+link_push	src/linkedlist.cpp	/^void link_push(link p)$/;"	f
+link_search	src/linkedlist.cpp	/^link link_search(const unsigned char key)$/;"	f
+link_traverse	src/linkedlist.cpp	/^void link_traverse(void (*link_fun)(link))$/;"	f
+magnitude	inc/rect_pol.h	30;"	d
+magnitude_tb1	inc/rect_pol.h	/^double (*magnitude_tb1[])(const complex_struct) =$/;"	v
+main	src/ARRAY.cpp	/^int main(int argc, char const *argv[])$/;"	f
+main	src/main.cpp	/^int main(int argc, char const *argv[])$/;"	f
+merge_sort	src/sort.cpp	/^void merge_sort(int *array, int start, int end)$/;"	f
+msg	src/main.cpp	/^static const char *msg[] = { "Sunday", "Monday", "Tuesday",$/;"	v	file:
+next	inc/linkedlist.h	/^    link next;$/;"	m	struct:node
+node	inc/linkedlist.h	/^struct node {$/;"	s
+order_statistic	src/sort.cpp	/^int order_statistic(int *array, int start, int end, int k)$/;"	f
+partition	src/sort.cpp	/^int partition(int *array, int start, int end)$/;"	f
+point	inc/main.h	/^typedef struct point {$/;"	s
+pol_angle	src/rect_pol.cpp	/^double pol_angle(const complex_struct z)$/;"	f
+pol_img_part	src/rect_pol.cpp	/^double pol_img_part(const complex_struct z)$/;"	f
+pol_magnitude	src/rect_pol.cpp	/^double pol_magnitude(const complex_struct z)$/;"	f
+pol_real_part	src/rect_pol.cpp	/^double pol_real_part(const complex_struct z)$/;"	f
+pop	src/stack.cpp	/^item_t pop(void)$/;"	f
+push	src/stack.cpp	/^void push(item_t p)$/;"	f
+quicksort	src/sort.cpp	/^void quicksort(int *array, int start, int end)$/;"	f
+real_part	inc/rect_pol.h	28;"	d
+real_part_tb1	inc/rect_pol.h	/^double (*real_part_tb1[])(const complex_struct) =$/;"	v
+rect_angle	src/rect_pol.cpp	/^double rect_angle(const complex_struct z)$/;"	f
+rect_img_part	src/rect_pol.cpp	/^double rect_img_part(const complex_struct z)$/;"	f
+rect_magnitude	src/rect_pol.cpp	/^double rect_magnitude(const complex_struct z)$/;"	f
+rect_real_part	src/rect_pol.cpp	/^double rect_real_part(const complex_struct z)$/;"	f
+row	inc/main.h	/^    int row, col;$/;"	m	struct:point
+stack	src/stack.cpp	/^static item_t stack[512];$/;"	v	file:
+t	inc/rect_pol.h	/^    double t;$/;"	m	struct:complex_struct
+top	src/stack.cpp	/^static int top = 0;$/;"	v	file:

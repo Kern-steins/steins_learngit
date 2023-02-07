@@ -12,18 +12,6 @@ int ARRAY_MAX(int *RAND_ARRAY, int RAND_LENGTH);
 void ARRAY_SWAP(int *RAND_ARRAY, int Num_1, int Num_2);
 void ARRAY_Permutation(int *RAND_ARRAY, int RAND_LENGTH, int start);
 
-int main(int argc, char const *argv[])
-{
-    int array[LENGTH] = { 0 };
-    int a[N] = { 0 };
-    int i = 0;
-    srand(time(NULL));
-    gen_random(a, N, LENGTH);
-    for (i = 0; i < N; i++)
-        array[a[i]]++;
-    ARRAY_CHART(array, LENGTH);
-    return 0;
-}
 
 /*
 *	该函数用来以直方图形式打印数组

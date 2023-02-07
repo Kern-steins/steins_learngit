@@ -1,24 +1,27 @@
 #include <stdio.h>
-#include <math.h>
+#include "../inc/linkedlist.h"
 
-static const char *msg[] = { "Sunday", "Monday", "Tuesday",
-                             "Wednesday", "Thursday", "Friday",
-                             "Saturday",
-                           };
-
-void get_a_day(const char **p)
+void print_item(link p)
 {
-    static int i = 0;
-    *p = msg[i % 7];
-    i++;
+    printf("%d\n", p->item);
 }
 
 int main(int argc, char const *argv[])
 {
-    const char *firstday = NULL;
-    const char *secondday = NULL;
-    get_a_day(&firstday);
-    get_a_day(&secondday);
-    printf("%s\t%s\n", firstday, secondday);
+    link p = link_make_node(10);
+    link_insert(p);
+    p = link_make_node(5);
+    link_insert(p);
+    p = link_make_node(90);
+    link_insert(p);
+    p = link_make_node(5);
+    link_insert(p);
+    link_delete(p);
+    link_free_node(p);
+    link_traverse(print_item);
+    link_destroy();
+
+
+
     return 0;
 }

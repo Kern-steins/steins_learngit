@@ -1,11 +1,12 @@
 #include <stdlib.h>
 #include "../inc/linkedlist.h"
 
+
 static link head = NULL;
 
 link link_make_node(const unsigned char item)
 {
-    link p = malloc(sizeof(*p));
+    link p = (link)malloc(sizeof *p );
     p->item = item;
     p->next = NULL;
     return p;
@@ -32,6 +33,7 @@ void link_insert(link p)
     head = p;
 }
 
+
 void link_delete(link p)
 {
     link pre;
@@ -50,7 +52,7 @@ void link_delete(link p)
 void link_traverse(void (*link_fun)(link))
 {
     link p;
-    for (int p = 0; p ; p = p->next) {
+    for (p = head; p ; p = p->next) {
         link_fun(p);
     }
 
@@ -76,7 +78,7 @@ link link_pop(void)
 {
     if (head == NULL) {
         return NULL;
-    } else{
+    } else {
         link p = head;
         head = head->next;
         return p;
