@@ -14,15 +14,15 @@ void ARRAY_Permutation(int *RAND_ARRAY, int RAND_LENGTH, int start);
 
 int main(int argc, char const *argv[])
 {
-	int array[LENGTH] = {0};
-	int a[N] = {0};
-	int i = 0;
-	srand(time(NULL));
-	gen_random(a,N,LENGTH);
-	for (i = 0; i < N; i++)
-		array[a[i]]++;
-	ARRAY_CHART(array,LENGTH);
-	return 0;
+    int array[LENGTH] = { 0 };
+    int a[N] = { 0 };
+    int i = 0;
+    srand(time(NULL));
+    gen_random(a, N, LENGTH);
+    for (i = 0; i < N; i++)
+        array[a[i]]++;
+    ARRAY_CHART(array, LENGTH);
+    return 0;
 }
 
 /*
@@ -34,25 +34,24 @@ int main(int argc, char const *argv[])
 void ARRAY_CHART(int *RAND_ARRAY, int RAND_LENGTH)
 {
 
-	int MAX = ARRAY_MAX(RAND_ARRAY, RAND_LENGTH);
+    int MAX = ARRAY_MAX(RAND_ARRAY, RAND_LENGTH);
 
-	for (int a=0; a < RAND_LENGTH; a++){
-		if (a == RAND_LENGTH - 1){
-			printf("%d\n", a);
-		}
-		else
-			printf("%d\t", a);
-	}
-	for (int i = 0; i < MAX; i++) {
-		/* code */
-		for (int j = 0; j < RAND_LENGTH; j++) {
-			if (RAND_ARRAY[j] > i) {
-				printf("*\t");
-			} else
-				printf(" \t");
-		}
-		printf("\n");
-	}
+    for (int a = 0; a < RAND_LENGTH; a++) {
+        if (a == RAND_LENGTH - 1) {
+            printf("%d\n", a);
+        } else
+            printf("%d\t", a);
+    }
+    for (int i = 0; i < MAX; i++) {
+        /* code */
+        for (int j = 0; j < RAND_LENGTH; j++) {
+            if (RAND_ARRAY[j] > i) {
+                printf("*\t");
+            } else
+                printf(" \t");
+        }
+        printf("\n");
+    }
 
 }
 
@@ -63,13 +62,13 @@ void ARRAY_CHART(int *RAND_ARRAY, int RAND_LENGTH)
 void ARRAY_PRINT(int *RAND_ARRAY, int RAND_LENGTH)
 {
 
-	for (int i = 0; i < RAND_LENGTH; i++) {
-		if (i != RAND_LENGTH - 1) {
-			printf("%d\t", RAND_ARRAY[i]);
+    for (int i = 0; i < RAND_LENGTH; i++) {
+        if (i != RAND_LENGTH - 1) {
+            printf("%d\t", RAND_ARRAY[i]);
 
-		} else
-			printf("%d\n", RAND_ARRAY[i]);
-	}
+        } else
+            printf("%d\n", RAND_ARRAY[i]);
+    }
 
 }
 
@@ -79,11 +78,11 @@ void ARRAY_PRINT(int *RAND_ARRAY, int RAND_LENGTH)
 void gen_random(int *RAND_ARRAY, int RAND_COUNT, int R_LENGTH)
 {
 
-	for (int i = 0; i < RAND_COUNT; i++) {
+    for (int i = 0; i < RAND_COUNT; i++) {
 
-		RAND_ARRAY[i] = rand() % R_LENGTH;
+        RAND_ARRAY[i] = rand() % R_LENGTH;
 
-	}
+    }
 
 }
 
@@ -93,23 +92,23 @@ void gen_random(int *RAND_ARRAY, int RAND_COUNT, int R_LENGTH)
 int ARRAY_MAX(int *RAND_ARRAY, int RAND_LENGTH)
 {
 
-	int MAX = RAND_ARRAY[0];
-	for (int i = 0; i < RAND_LENGTH; i++) {
-		if (MAX < RAND_ARRAY[i])
-			MAX = RAND_ARRAY[i];
+    int MAX = RAND_ARRAY[0];
+    for (int i = 0; i < RAND_LENGTH; i++) {
+        if (MAX < RAND_ARRAY[i])
+            MAX = RAND_ARRAY[i];
 
-	}
-	return MAX;
+    }
+    return MAX;
 
 }
 
 //交换数组的元素
 void ARRAY_SWAP(int *RAND_ARRAY, int Num_1, int Num_2)
 {
-	int temp = 0;
-	temp = RAND_ARRAY[Num_1];
-	RAND_ARRAY[Num_1] = RAND_ARRAY[Num_2];
-	RAND_ARRAY[Num_2] = temp;
+    int temp = 0;
+    temp = RAND_ARRAY[Num_1];
+    RAND_ARRAY[Num_1] = RAND_ARRAY[Num_2];
+    RAND_ARRAY[Num_2] = temp;
 
 }
 
@@ -120,17 +119,16 @@ void ARRAY_SWAP(int *RAND_ARRAY, int Num_1, int Num_2)
 void ARRAY_Permutation(int *RAND_ARRAY, int RAND_LENGTH, int start)
 {
 
-	if (start == RAND_LENGTH) {
-		ARRAY_PRINT(RAND_ARRAY, RAND_LENGTH);
-	} else {
-		for (int i = start; i < RAND_LENGTH; i++) {
+    if (start == RAND_LENGTH) {
+        ARRAY_PRINT(RAND_ARRAY, RAND_LENGTH);
+    } else {
+        for (int i = start; i < RAND_LENGTH; i++) {
 
-			ARRAY_SWAP(RAND_ARRAY, i, start);
-			ARRAY_Permutation(RAND_ARRAY, RAND_LENGTH,
-					  start + 1);
-			ARRAY_SWAP(RAND_ARRAY, i, start);
-		}
-	}
+            ARRAY_SWAP(RAND_ARRAY, i, start);
+            ARRAY_Permutation(RAND_ARRAY, RAND_LENGTH, start + 1);
+            ARRAY_SWAP(RAND_ARRAY, i, start);
+        }
+    }
 
 
 }
