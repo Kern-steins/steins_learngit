@@ -14,8 +14,7 @@ int main(int argc, char const *argv[])
     link_insert(p);
     p = link_make_node(90);
     link_insert(p);
-    p = link_make_node(5);
-    link_insert(p);
+    p = link_search(5);
     link_delete(p);
     link_free_node(p);
     link_traverse(print_item);
